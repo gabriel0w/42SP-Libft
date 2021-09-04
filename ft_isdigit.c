@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbelo-so <gbelo-so@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gbelo <gbelo-so@student.42sp.org.br>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:13:58 by gbelo-so          #+#    #+#             */
-/*   Updated: 2021/08/30 21:15:48 by gbelo-so         ###   ########.fr       */
+/*   Updated: 2021/09/03 16:42:31 by gbelo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int isdigit(int c)
+#include "libft.h"
+
+int	ft_isdigit(int c)
 {
-    if (c > 47 && c < 58)
-        return(1);
-    else
-        return (0);
+	if (c > 47 && c < 58)
+		return (1);
+	return (0);
 }

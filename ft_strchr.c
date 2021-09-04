@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbelo <gbelo-so@student.42sp.org.br>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 19:07:20 by gbelo             #+#    #+#             */
-/*   Updated: 2021/09/03 22:49:49 by gbelo            ###   ########.fr       */
+/*   Created: 2021/09/03 17:42:51 by gbelo             #+#    #+#             */
+/*   Updated: 2021/09/03 21:46:41 by gbelo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+char	*ft_strchr(const char *s, int c)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+	int	count;
+
+	if (!s)
+		return (NULL);
+	count = 0;
+	while (s[count])
+	{
+		if (s[count] == c)
+			return ((char *)s + count);
+		count++;
+	}
+	if (c == '\0')
+		return ((char *)s + (count));
+	return (NULL);
 }
