@@ -6,7 +6,7 @@
 /*   By: gbelo <gbelo-so@student.42sp.org.br>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 17:42:51 by gbelo             #+#    #+#             */
-/*   Updated: 2021/09/03 21:46:41 by gbelo            ###   ########.fr       */
+/*   Updated: 2021/09/06 22:10:34 by gbelo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strchr(const char *s, int c)
 	count = 0;
 	while (s[count])
 	{
-		if (s[count] == c)
+		if (s[count] == (unsigned char)c)
 			return ((char *)s + count);
 		count++;
 	}

@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbelo <gbelo-so@student.42sp.org.br>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 22:03:06 by gbelo             #+#    #+#             */
-/*   Updated: 2021/09/07 20:41:15 by gbelo            ###   ########.fr       */
+/*   Created: 2021/09/07 20:37:31 by gbelo             #+#    #+#             */
+/*   Updated: 2021/09/10 08:31:08 by gbelo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+int	ft_atoi(const char *nptr)
 {
-	size_t	h;
-	size_t	n;
+	int	signal;
+	int	i;
+	int	res;
 
-	h = 0;
-	n = 0;
-	if (*needle == 0)
-		return ((char *)haystack);
-	if (len == 0)
-		return (0);
-	while (haystack[h] && h <= len)
+	res = 0;
+	i = 0;
+	signal = 1;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		while (haystack[h + n] && haystack[h + n] == needle[n]
-			&& n + h < len)
-			n++;
-		if (ft_strlen(needle) == n)
-			return ((char *)haystack + h);
-		h++;
-		n = 0;
+		if (nptr[i] == '-')
+			signal = -1;
+		i++;
 	}
-	return (0);
+	while (nptr[i] && ft_isdigit(nptr[i]))
+	{
+		res = (res * 10) + (nptr[i] - '0');
+		i++;
+	}
+	return (res * signal);
 }
