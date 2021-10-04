@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbelo <gbelo-so@student.42sp.org.br>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/06 15:15:47 by gbelo             #+#    #+#             */
-/*   Updated: 2021/09/18 19:19:04 by gbelo            ###   ########.fr       */
+/*   Created: 2021/10/04 02:59:28 by gbelo             #+#    #+#             */
+/*   Updated: 2021/10/04 02:59:31 by gbelo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
+	char			*str;
+	unsigned int	i;
 
+	str = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	i = 0;
-	if (dest > src)
+	if (!str)
+		return (0);
+	while (s[i])
 	{
-		while (n > 0)
-		{
-			((char *)dest)[n - 1] = ((char *)src)[n - 1];
-			n--;
-		}
+		str[i] = f(i, s[i]);
+		i++;
 	}
-	else
-	{
-		while (n > 0)
-		{
-			((char *)dest)[i] = ((char *)src)[i];
-			n--;
-			i++;
-		}
-	}
-	return (dest);
+	str[i] = '\0';
+	return (str);
 }

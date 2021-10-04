@@ -6,23 +6,26 @@
 /*   By: gbelo <gbelo-so@student.42sp.org.br>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 09:45:18 by gbelo             #+#    #+#             */
-/*   Updated: 2021/09/10 09:48:00 by gbelo            ###   ########.fr       */
+/*   Updated: 2021/10/02 17:19:38 by gbelo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *string)
 {
-	char	*tmp;
-	size_t	i;
+	int		i;
+	char	*str;
 
 	i = 0;
-	tmp = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	while (i <= ft_strlen(s))
+	str = (char *)malloc (sizeof(char) * (ft_strlen(string) + 1));
+	if (str == NULL)
+		return (NULL);
+	while (string[i])
 	{
-		tmp[i] = s[i];
+		str[i] = string[i];
 		i++;
 	}
-	return (tmp);
+	str[i] = '\0';
+	return (str);
 }

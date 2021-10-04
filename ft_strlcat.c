@@ -1,20 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbelo <gbelo-so@student.42sp.org.br>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/04 02:58:23 by gbelo             #+#    #+#             */
+/*   Updated: 2021/10/04 02:58:24 by gbelo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t i;
-	size_t j;
+	size_t	d;
+	size_t	s;
 
-	if (size <= ft_strlen(dst))
-		return (size + ft_strlen(src));
-	i = ft_strlen(dst);
-	j = 0;
-	while (src && i + 1 < size)
+	d = 0;
+	s = 0;
+	while (dst[d] && d < size)
+		d++;
+	while (src[s] && d + s + 1 < size)
 	{
-		dst[i] = src[j];
-		i++;
-		j++;
+		dst[d + s] = src[s];
+		s++;
 	}
-	dst[i] = '\0';
-	return ((i - 1) + ft_strlen(dst));
+	if (d != size)
+		dst[s + d] = '\0';
+	return (d + ft_strlen(src));
 }
