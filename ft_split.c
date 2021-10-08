@@ -6,7 +6,7 @@
 /*   By: gbelo <gbelo-so@student.42sp.org.br>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 02:56:37 by gbelo             #+#    #+#             */
-/*   Updated: 2021/10/04 03:24:06 by gbelo            ###   ########.fr       */
+/*   Updated: 2021/10/08 17:07:09 by gbelo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static char	**brain(const char *s, char c, char **substr, size_t i)
 			i++;
 		k = 0;
 	}
-	substr[l] = '\0';
+	substr[l] = NULL;
 	return (substr);
 }
 
